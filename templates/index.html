@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Enhanced PhishDet</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <main class="shell">
+    <header>
+      <div class="badge">CYBERSECURITY • PROTOTYPE</div>
+      <h1>Enhanced <span>PhishDet</span></h1>
+      <p>Phishing Website Detection using URL + HTML Evidence</p>
+    </header>
+
+    <section class="card input-card">
+      <label for="url">Website URL</label>
+      <div class="row">
+        <input id="url" type="text" placeholder="https://example.com" autocomplete="off">
+        <button id="analyze">Analyze Website</button>
+      </div>
+      <div class="examples">
+        <button class="example" data-url="https://www.google.com">Demo: Google</button>
+        <button class="example" data-url="http://secure-login-account-verify.example.test/login?user=123">Demo: Suspicious URL</button>
+      </div>
+    </section>
+
+    <div id="loading" class="loading hidden">Analyzing URL and HTML...</div>
+    <div id="error" class="error hidden"></div>
+
+    <section id="result" class="hidden">
+      <div class="prediction card">
+        <div>
+          <small>FINAL PREDICTION</small>
+          <h2 id="prediction">—</h2>
+          <p id="confidence">—</p>
+        </div>
+        <div id="score" class="score">—</div>
+      </div>
+
+      <div class="grid">
+        <article class="card">
+          <h3>URL Analysis</h3>
+          <div id="urlLevel" class="level">—</div>
+          <p id="urlSummary"></p>
+          <div id="urlFeatures" class="features"></div>
+        </article>
+
+        <article class="card">
+          <h3>HTML Analysis</h3>
+          <div id="htmlLevel" class="level">—</div>
+          <p id="htmlSummary"></p>
+          <div id="htmlFeatures" class="features"></div>
+        </article>
+      </div>
+
+      <div class="card notice">
+        <strong>Prototype notice:</strong>
+        <span id="notice"></span>
+      </div>
+    </section>
+
+    <footer>
+      Enhanced PhishDet • Micro Project Prototype • Baranidharan K, Hemanath A K, Dheviaan M
+    </footer>
+  </main>
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
